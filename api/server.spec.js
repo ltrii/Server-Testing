@@ -4,7 +4,7 @@ const server = require('./server.js');
 
 describe('sever.js', () => {
   it('should set development environment', () => {
-    expect(process.env.DB_ENV).toBe('development');
+    expect(process.env.DB_ENV).toBe('testing');
   });
 
   describe('GET /', () => {
@@ -28,7 +28,7 @@ describe('sever.js', () => {
       expect(res.type).toBe('application/json');
     });
 
-    it('should return { api: "up" }', async () => {
+    it('should return { api: "Running..." }', async () => {
       const res = await request(server).get('/');
 
       expect(res.body).toEqual({ api: 'Running...' });
